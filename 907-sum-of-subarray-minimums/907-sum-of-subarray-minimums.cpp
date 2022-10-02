@@ -1,13 +1,10 @@
 class Solution {
 public:
     int sumSubarrayMins(vector<int>& arr) {
-        int n = arr.size();
+         int n = arr.size();
         int MOD = 1e9 + 7;
         vector<int> left(n), right(n);
-        
-        // for every i find the Next smaller element to left and right
-        
-        // Left
+       
         stack<int>st;
         st.push(0);
         left[0] = 1; // distance = 1, left not found, this is distance multiplied with num, so it can't be zero
@@ -44,13 +41,7 @@ public:
             st.push(i);
         }
         
-        // total number of subarrays : (Left[i] * Right[i])
-        // total contribution in A[i] element in final answer : (Left * Right) * A[i] 
-        
-        for(int i=0; i<n; i++) 
-             cout << left[i] << " : " << right[i] << endl;
-        
-        // for each i, contribution is (Left * Right) * Element 
+       
         
         int res = 0;
         for(int i=0; i<n; i++)
@@ -61,5 +52,5 @@ public:
         }
         
         return res%MOD;
-    }
+        }
 };
