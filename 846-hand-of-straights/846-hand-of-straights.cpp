@@ -17,14 +17,14 @@ public:
     
     while(!pq.empty()){
         int val=pq.top();
-        for(int i=0;i<groupSize;i++){
-            if(map.find(i+val)==map.end())
+        for(int i=val;i<val+groupSize;i++){
+            if(map.find(i)==map.end())
                 return false;
             
-            map[i+val]--;
-            if(map[i+val]==0)
+            map[i]--;
+            if(map[i]==0)
             {
-                if(i+val != pq.top())
+                if(i!= pq.top())
                     return false;
                 pq.pop();
             }
